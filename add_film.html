@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Film</title>
+</head>
+<body>
+    <form action="add_film.php" method="POST">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description"></textarea><br>
+        <label for="release_year">Release Year:</label><br>
+        <input type="number" id="release_year" name="release_year"><br>
+        <label for="language_id">Language ID:</label><br>
+        <input type="number" id="language_id" name="language_id"><br>
+        <label for="rental_duration">Rental Duration:</label><br>
+        <input type="number" id="rental_duration" name="rental_duration"><br>
+        <label for="rental_rate">Rental Rate:</label><br>
+        <input type="number" step="0.01" id="rental_rate" name="rental_rate"><br>
+        <label for="length">Length:</label><br>
+        <input type="number" id="length" name="length"><br>
+        <label for="replacement_cost">Replacement Cost:</label><br>
+        <input type="number" step="0.01" id="replacement_cost" name="replacement_cost"><br>
+        <label for="rating">Rating:</label><br>
+        <select id="rating" name="rating">
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+            <option value="NC-17">NC-17</option>
+        </select><br>
+        <label for="special_features">Special Features:</label><br>
+        <select id="special_features" name="special_features">
+            <option value="Trailers">Trailers</option>
+            <option value="Commentaries">Commentaries</option>
+            <option value="Deleted Scenes">Deleted Scenes</option>
+            <option value="Behind the Scenes">Behind the Scenes</option>
+        </select><br>
+        <input type="submit" value="Save">
+        <button onclick="window.location.href='manager.html'">Cancel</button>
+    </form>
+</body>
+</html>
