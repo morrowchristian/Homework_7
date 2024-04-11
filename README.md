@@ -27,4 +27,5 @@ One page PDF tell the grader how you team members make the contribution for the 
 A YouTube video demos the correctness and completeness for the project.
 sample output:
 
-image.png
+![image](https://github.com/morrowchristian/Homework_7/assets/89509020/0b465041-e20f-4f67-8381-9b30196dd643)
+
