@@ -1,8 +1,7 @@
 <?php
-// Database connection setup - Assuming sakila database exists
 $servername = "localhost";
-$username = "username"; // Replace with your username
-$password = "password"; // Replace with your password
+$username = "root";
+$password = "101601";
 $dbname = "sakila";
 
 // Create connection
@@ -13,11 +12,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Prepare and bind parameters
-$stmt = $conn->prepare("INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO film (title,description,release_year,language_id,rental_duration,rental_rate,length,replacement_cost,rating,special_features) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssiiididss", $title, $description, $release_year, $language_id, $rental_duration, $rental_rate, $length, $replacement_cost, $rating, $special_features);
 
-// Set parameters and execute
 $title = $_POST['title'];
 $description = $_POST['description'];
 $release_year = $_POST['release_year'];
@@ -27,10 +24,10 @@ $rental_rate = $_POST['rental_rate'];
 $length = $_POST['length'];
 $replacement_cost = $_POST['replacement_cost'];
 $rating = $_POST['rating'];
-$special_features = $_POST['special_features'];
+$special_features = implode(", ", $_POST['special_features']);
 
 if ($stmt->execute()) {
-    echo "New film added successfully";
+    echo "New record created successfully";
 } else {
     echo "Error: " . $stmt->error;
 }
@@ -43,9 +40,10 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Film</title>
+    <title>Add Film Result</title>
 </head>
 <body>
-    <button onclick="window.location.href='manager.html'">Back to Manager</button>
+    <br>
+    <a href="manager.html"><button>Return to Manager Dashboard</button></a>
 </body>
 </html>
