@@ -14,8 +14,9 @@ if ($conn->connect_error) {
 }
 
 // Query to fetch customer data along with films rented by each customer
-$sql = "SELECT c.first_name, c.last_name, c.address, c.city, c.district, c.postal_code, GROUP_CONCAT(f.title SEPARATOR ', ') AS film_titles 
+$sql = "SELECT c.first_name, c.last_name, a.address, a.city, a.district, a.postal_code, GROUP_CONCAT(f.title SEPARATOR ', ') AS film_titles 
         FROM customer c
+        LEFT JOIN address a ON c.address_id = a.address_id
         LEFT JOIN rental r ON c.customer_id = r.customer_id
         LEFT JOIN inventory i ON r.inventory_id = i.inventory_id
         LEFT JOIN film f ON i.film_id = f.film_id
